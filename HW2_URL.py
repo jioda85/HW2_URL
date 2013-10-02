@@ -22,11 +22,11 @@ class read_data():
 	
 	Input : start_date = date of start
 	        end_date   = date of end
-			site_no    = number of site
-    return: self.dates = dates in [date(yr, mon, day)]
+		site_no    = number of site
+        return: self.dates = dates in [date(yr, mon, day)]
 	        self.flow  = discharge in [cms]
-			self.mean  = mean 
-			self.stdev = stdev
+		self.mean  = mean 
+		self.stdev = stdev
     '''
 
     def __init__(self, start_date, end_date, site_no):
@@ -58,7 +58,7 @@ class read_data():
         # close URL for memory
         URL.close()
 		
-		# convert lists to arrays
+	# convert lists to arrays
         dates = np.array(dates)
         flow  = np.array(flow)
 		
@@ -74,11 +74,11 @@ class read_data():
             mean.append(np.mean(cal_flow))
             stdev.append(np.std(cal_flow))
 
-		# convert lists to arrays
+	# convert lists to arrays
         mean  = np.array(mean) 
         stdev = np.array(stdev)                    
         
-		# return the result
+	# return the result
         self.dates = dates
         self.flow  = flow
         self.mean  = mean
@@ -117,11 +117,11 @@ if __name__ == "__main__":
     ax.plot(plt_dates, plt_upstd, ':', color = '0.25', label = 'Upper')
     ax.plot(plt_dates, plt_lwstd, ':', color = '0.25', label = 'Lower')
 	
-	# decorate the plot
+    # decorate the plot
     plt.title('Timeseries of Discharge from 2010\n for site no.'+site, size=18)
-    plt.xlabel('Dates (mm/yy)', size=16)
-    plt.ylabel('Discharge (m$^{3}$/sec)', size=16)
-    plt.legend(bbox_to_anchor=(1.02, 1), loc=2, borderaxespad=0.)
+    plt.xlabel('Dates (mm/yy)', size = 16)
+    plt.ylabel('Discharge (m$^{3}$/sec)', size = 16)
+    plt.legend(bbox_to_anchor=(1.02, 1), loc = 2, borderaxespad = 0.)
     plt.show()
 
     # save the figure
